@@ -29,6 +29,7 @@ setup(
     name='rainmaker',
     version='0.1-DEVELOPMENT',
     long_description=read('README.rst'),
+    description='Tool that uses Thundercloud and pyVmomi to create rules in vCloud Usage Meter',
     install_requires=required,
     test_suite='tests',
     zip_safe=True,
@@ -60,5 +61,4 @@ setup(
     platforms=['Windows', 'Linux', 'Solaris', 'Mac OS-X', 'Unix'],
     author='Michael Rice',
     author_email='michael@michaelrice.org',
-    description='Tool that uses Thundercloud and pyVmomi to create rules in vCloud Usage Meter'
 )
