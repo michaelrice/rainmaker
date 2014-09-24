@@ -28,14 +28,11 @@ with open('test-requirements.txt') as f:
 setup(
     name='rainmaker',
     version='0.1-DEVELOPMENT',
-    long_description=read('README.rst'),
     description='Tool that uses Thundercloud and pyVmomi to create rules in vCloud Usage Meter',
-    install_requires=required,
-    test_suite='tests',
-    zip_safe=True,
-    tests_require=required_for_tests,
+    long_description=read('README.rst'),
     packages=['rainmaker'],
     url='https://github.com/michaelrice/rainmaker',
+    install_requires=required,
     license='License :: OSI Approved :: Apache Software License',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -61,4 +58,7 @@ setup(
     platforms=['Windows', 'Linux', 'Solaris', 'Mac OS-X', 'Unix'],
     author='Michael Rice',
     author_email='michael@michaelrice.org',
+    test_suite='tests',
+    zip_safe=True,
+    tests_require=required_for_tests,
 )
