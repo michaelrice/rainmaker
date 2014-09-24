@@ -17,7 +17,7 @@ import atexit
 from pyVim import connect
 from pyVmomi import vim
 
-from tools import pchelper
+from .tools import pchelper
 
 
 def get_datacenters(service_instance):
