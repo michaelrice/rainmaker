@@ -12,8 +12,6 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-import atexit
-
 from pyVim import connect
 from pyVmomi import vim
 
@@ -21,6 +19,19 @@ from .tools import pchelper
 
 
 def get_datacenters(service_instance):
+    """
+    Given a ServiceInstance return all the
+    vim.Datacenter objects in a list of dict
+    that look like:
+
+    data = get_datacenters(si)
+
+    data:
+    [{'moref': 'datacenter-2', u'name': 'DC0'}]
+
+    :param service_instance:
+    :return:
+    """
     view = pchelper.get_container_view(service_instance,
                                        obj_type=[vim.Datacenter])
     data = pchelper.collect_properties(service_instance, view_ref=view,
@@ -32,9 +43,19 @@ def get_datacenters(service_instance):
 
 def get_connection(host='localhost', user='administrator@vsphere.local',
                    password='vmware', port=443):
+    """
+    Return a ServiceInstance given the connection info
+
+    service_instance = get_connection(host='10.12.254.100')
+
+    :param host:
+    :param user:
+    :param password:
+    :param port:
+    :return:
+    """
     service_instance = connect.SmartConnect(host=host,
                                             user=user,
                                             pwd=password,
                                             port=int(port))
-    atexit.register(connect.Disconnect, service_instance)
     return service_instance

@@ -19,8 +19,15 @@ from abc import abstractmethod
 class VCenterProvider(object):
     __metaclass__ = ABCMeta
 
-    def __init__(self, datacenter):
+    def __init__(self, datacenter, config):
+        """
+
+        :param datacenter str:
+        :param config configparser:
+        :return:
+        """
         self.datacenter = datacenter
+        self.config = config
 
     @abstractmethod
     def get_vcenter(self):
